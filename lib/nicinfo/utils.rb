@@ -20,9 +20,10 @@ require 'nicinfo/config'
 module NicInfo
 
   def NicInfo.make_safe( url )
-    safe = URI.escape( url )
-    safe = URI.escape( safe, "!*'();:@&=+$,/?#[]" )
-    return safe
+    # safe = URI.escape( url )
+    # safe = URI.escape( safe, "!*'();:@&=+$,/?#[]" )
+    # return safe
+    return URI.encode_www_form_component(url, enc=nil)
   end
 
   def NicInfo.get_secure_dns json_data
